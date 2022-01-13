@@ -16,7 +16,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,9 +37,7 @@
     <!-- Argon CSS -->
     {#  <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">#}
     <link rel="stylesheet" href="{% static 'css/argon.css' %}" type="text/css">
-
 </head>
-
 <body>
 <!-- Sidenav -->
 {#<nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">#}
@@ -152,7 +149,7 @@
 <!-- Main content -->
 <div class="main-content" id="panel">
     <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-info border-bottom">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Search form -->
@@ -179,13 +176,13 @@
                         {#                            </ol>#}
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Team 2</a>
+                                <a href="{% url 'discover:index' %}" class="nav-link text-white">직업 탐색</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+                                <a href="#" class="nav-link text-white">채용 공고</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+                                <a href="{% url 'talk:index' %}" class="nav-link text-white">직업 톡</a>
                             </li>
                         </ul>
                     </nav>
@@ -369,7 +366,7 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                <ul class="navbar-nav align-items-center  ml-md-0 ">
                     <li class="nav-item dropdown">
                         <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
@@ -414,7 +411,7 @@
         </div>
     </nav>
     <!-- Header -->
-    <div class="header bg-primary pb-5">
+    <div class="header pb-5">
         <div class="container-fluid">
             <div class="header-body">
                 <div class="row align-items-center py-4">
@@ -536,7 +533,7 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                                <h5 class="h3 text-white mb-0">Sales value</h5>
+                                <h5 class="h3 text-white mb-0">실업률</h5>
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -570,15 +567,15 @@
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                                <h5 class="h3 mb-0">Total orders</h5>
+                                <h6 class="text-uppercase text-muted ls-1 mb-1">단위: %</h6>
+                                <h5 class="h3 mb-0">초등학생 희망직업 상위 6위</h5>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <!-- Chart -->
                         <div class="chart">
-                            <canvas id="chart-bars" class="chart-canvas"></canvas>
+                            <canvas id="bar-chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -849,8 +846,57 @@
 {#<script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>#}
 <script src="{% static 'vendor/chart.js/dist/Chart.extension.js' %}"></script>
 <!-- Argon JS -->
-<script src="assets/js/argon.js?v=1.2.0"></script>
+{#<script src="assets/js/argon.js?v=1.2.0"></script>#}
 <script src="{% static 'js/argon.js' %}"></script>
-</body>
+<script>
+    // create bar-chart
+    var BarsChart = (function() {
 
+        //
+        // Variables
+        //
+        var $chart = $('#bar-chart');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chart) {
+
+            // Create chart
+            var ordersChart = new Chart($chart, {
+                type: 'bar',
+                data: {
+                    labels: ['운동선수', '의사', '교사', '크리에이터', '프로게이머', '경찰관'],
+                    datasets: [{
+                        // label: '%',
+                        data: [8.8, 7.6, 6.5, 6.3, 4.3, 4.2]
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{//x축 설정
+                            ticks: {
+                                minRotation: 45,
+                                maxRotation: 45
+                            }
+                        }]
+                    }
+                },
+            });
+
+            // Save to jQuery object
+            $chart.data('chart', ordersChart);
+        }
+
+        // Init chart
+        if ($chart.length) {
+            initChart($chart);
+        }
+
+    })();
+</script>
+</body>
 </html>

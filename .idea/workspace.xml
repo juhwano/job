@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa835117-e190-40cb-9aba-5a2a80aeec10" name="Changes" comment="" />
+    <list default="true" id="fa835117-e190-40cb-9aba-5a2a80aeec10" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/discover/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_j/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/discover/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discover/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +20,9 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -94,6 +103,7 @@
       <workItem from="1642053268220" duration="3886000" />
       <workItem from="1642058276210" duration="1861000" />
       <workItem from="1642060346619" duration="6627000" />
+      <workItem from="1642098829439" duration="4817000" />
     </task>
     <servers />
   </component>
