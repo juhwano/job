@@ -37,6 +37,8 @@
     <!-- Argon CSS -->
     {#  <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">#}
     <link rel="stylesheet" href="{% static 'css/argon.css' %}" type="text/css">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <!-- Sidenav -->
@@ -149,7 +151,7 @@
 <!-- Main content -->
 <div class="main-content" id="panel">
     <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-info border-bottom">
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Search form -->
@@ -176,13 +178,16 @@
                         {#                            </ol>#}
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
-                                <a href="{% url 'discover:index' %}" class="nav-link text-white">직업 탐색</a>
+                                <a href="#" class="nav-link text-white">직업 탐색</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-white">채용 공고</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'talk:index' %}" class="nav-link text-white">직업 톡</a>
+                                <a href="#" class="nav-link text-white">직업 톡</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white">직업 정보</a>
                             </li>
                         </ul>
                     </nav>
@@ -527,29 +532,54 @@
     <!-- Page content -->
     <div class="container-fluid mt--6">
         <div class="row">
-            <div class="col-xl-8">
+            <div class="col-xl-7">
                 <div class="card bg-default">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                                <h5 class="h3 text-white mb-0">실업률</h5>
+                                <h5 class="h3 text-white mb-0">평균 주당 근로시간</h5>
                             </div>
+
                             <div class="col">
-                                <ul class="nav nav-pills justify-content-end">
-                                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                                            <span class="d-none d-md-block">Month</span>
-                                            <span class="d-md-none">M</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                                            <span class="d-none d-md-block">Week</span>
-                                            <span class="d-md-none">W</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                {#                                <ul class="nav nav-pills justify-content-end">#}
+                                {#                                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-dark" data-update='{"data":{"datasets":[{"data":[20, 50, 10, 40]}]}}' data-suffix="만원">#}
+                                {#                                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">#}
+                                {#                                            <span class="d-none d-md-block">2020년</span>#}
+                                {#                                            <span class="d-md-none">M</span>#}
+                                {#                                        </a>#}
+                                {#                                    </li>#}
+                                {#                                    <li class="nav-item" data-toggle="chart" data-target="#chart" data-update='{"data":{"datasets":[{"data":[20, 15, 75, 30]}]}}' data-suffix="만원">#}
+                                {#                                        <a href="#" class="nav-link py-2 px-3 btn19" data-toggle="tab">#}
+                                {#                                            <span class="d-none d-md-block">2019년</span>#}
+                                {#                                            <span class="d-md-none">W</span>#}
+                                {#                                        </a>#}
+                                {#                                    </li>#}
+                                {#                                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 30, 35, 65, 30, 40, 35, 10, 40]}]}}' data-suffix="만원">#}
+                                {#                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">#}
+                                {#                                            <span class="d-none d-md-block">2018년</span>#}
+                                {#                                            <span class="d-md-none">W</span>#}
+                                {#                                        </a>#}
+                                {#                                    </li>#}
+                                {#                                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-suffix="만원">#}
+                                {#                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">#}
+                                {#                                            <span class="d-none d-md-block">2017년</span>#}
+                                {#                                            <span class="d-md-none">W</span>#}
+                                {#                                        </a>#}
+                                {#                                    </li>#}
+                                {#                                </ul>#}
+                                <select id="choice_job" class="form-control form-control-sm">
+                                    <option value="건채" selected>건설·채굴직</option>
+                                    <option value="경사금보">경영·사무·금융·보험직</option>
+                                    <option value="교법사경소군">교육·법률·사회복지·경찰·소방직 및 군인</option>
+                                    <option value="농어">농림어업직</option>
+                                    <option value="미여숙음경청">미용·여행·숙박·음식·경비·청소직</option>
+                                    <option value="보의">보건·의료직</option>
+                                    <option value="설정생">설치·정비·생산직</option>
+                                    <option value="연공">연구직 및 공학 기술직</option>
+                                    <option value="영판운운">영업·판매·운전·운송직</option>
+                                    <option value="예디방스">예술·디자인·방송·스포츠직</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -557,346 +587,1159 @@
                         <!-- Chart -->
                         <div class="chart">
                             <!-- Chart wrapper -->
-                            <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+                            <canvas id="lines"></canvas>
+                            {#                            <canvas id="chart-sales-dark"></canvas>#}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4">
+            <div class="col-xl-5">
                 <div class="card">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-uppercase text-muted ls-1 mb-1">단위: %</h6>
-                                <h5 class="h3 mb-0">초등학생 희망직업 상위 6위</h5>
+                                <h5 class="h3 mb-0">초등학생 희망직업 상위 5위</h5>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <!-- Chart -->
                         <div class="chart">
-                            <canvas id="bar-chart"></canvas>
+                            <canvas id="bars" width="600" height="400"></canvas>
+                            {#                            <canvas id="bar-chart"></canvas>#}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-8">
+            <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header border-0">
-                        <div class="row align-items-center">
+                        <div class="row align-items-center mb-3">
                             <div class="col">
-                                <h3 class="mb-0">Page visits</h3>
+                                <h3 class="mb-0">설문조사 표본(재직자)</h3>
                             </div>
+                            {#                                                         <div class="col text-right">#}
+                            {#                                                        <ul class="nav nav-pills justify-content-end">#}
+                            {#                                                                <li class="nav-item mr-2 mr-md-0">#}
+                            {#                                                                    <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">#}
+                            {#                                                                        <span class="d-none d-md-block">2017년</span>#}
+                            {#                                                                        <span class="d-md-none">M</span>#}
+                            {#                                                                    </a>#}
+                            {#                                                                </li>#}
+                            {#                                                                <li class="nav-item">#}
+                            {#                                                                    <a href="#" class="nav-link py-2 px-3" data-toggle="tab">#}
+                            {#                                                                        <span class="d-none d-md-block">2018년</span>#}
+                            {#                                                                        <span class="d-md-none">W</span>#}
+                            {#                                                                    </a>#}
+                            {#                                                                </li>#}
+                            {#                                                            <li class="nav-item">#}
+                            {#                                                                    <a href="#" class="nav-link py-2 px-3" data-toggle="tab">#}
+                            {#                                                                        <span class="d-none d-md-block">2019년</span>#}
+                            {#                                                                        <span class="d-md-none">W</span>#}
+                            {#                                                                    </a>#}
+                            {#                                                                </li>#}
+                            {#                                                            <li class="nav-item">#}
+                            {#                                                                    <a href="#" class="nav-link py-2 px-3" data-toggle="tab">#}
+                            {#                                                                        <span class="d-none d-md-block">2020년</span>#}
+                            {#                                                                        <span class="d-md-none">W</span>#}
+                            {#                                                                    </a>#}
+                            {#                                                                </li>#}
+                            {#                                                        </ul>#}
+                            {#                                                         </div>#}
+
+
                             <div class="col text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                                <button id="know20" class="btn btn-sm btn-primary yearbtn">2020</button>
+                                <button id="know19" class="btn btn-sm btn-primary yearbtn">2019</button>
+                                <button id="know18" class="btn btn-sm btn-primary yearbtn">2018</button>
+                                <button id="know17" class="btn btn-sm btn-primary yearbtn">2017</button>
+                                {#                                <a href="#" class="btn btn-sm btn-primary">2017</a>#}
+                                {#                                <a href="#" class="btn btn-sm btn-primary">2018</a>#}
+                                {#                                <a href="#" class="btn btn-sm btn-primary">2019</a>#}
+                                {#                                <a href="#" class="btn btn-sm btn-primary">2020</a>#}
                             </div>
+
+                        </div>
+                        <div class="table-responsive">
+                            <!-- Projects table -->
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">분야</th>
+                                    <th scope="col">답변자 수</th>
+                                    <th scope="col">신입 최고 초봉</th>
+                                    <th scope="col">신입 평균 초봉</th>
+                                    <th scope="col">경력자 최고 연봉</th>
+                                    <th scope="col">경력자 평균 연봉</th>
+                                    <th scope="col">답변자 평균 나이</th>
+                                    <th scope="col">업종 비율</th>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody id="job-tb">
+                                {% if know20 %}
+                                    {% for know in know20 %}
+                                        <tr>
+                                            <th scope="row">
+                                                <span>{{ know.large_level}}</span>
+                                            </th>
+                                            <td
+                                            <span> {{ know.count }} 명</span>
+                                            </td>
+                                            <td>
+                                                {{ know.top_start_salary }} 만원
+                                            </td>
+                                            <td>
+                                                {{ know.avg_start_salary }} 만원
+                                            </td>
+                                            <td>
+                                                {{ know.top_salary }} 만원
+                                            </td>
+                                            <td>
+                                                {{ know.avg_salary }} 만원
+                                            </td>
+                                            <td>
+                                                {{ know.avg_age }} 살
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="mr-2" id="ratio">{{ know.ratio}}%</span>
+                                                    <div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="{{ know.ratio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ know.ratio}}%;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+
+                                {#                            <tr>#}
+                                {#                                <th scope="row">#}
+                                {#                                    /argon/#}
+                                {#                                </th>#}
+                                {#                                <td>#}
+                                {#                                    4,569#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    340#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%#}
+                                {#                                </td>#}
+                                {#                            </tr>#}
+                                {##}
+                                {#                            <tr>#}
+                                {#                                <th scope="row">#}
+                                {#                                    /argon/index.html#}
+                                {#                                </th>#}
+                                {#                                <td>#}
+                                {#                                    3,985#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    319#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%#}
+                                {#                                </td>#}
+                                {#                            </tr>#}
+                                {#                            <tr>#}
+                                {#                                <th scope="row">#}
+                                {#                                    /argon/charts.html#}
+                                {#                                </th>#}
+                                {#                                <td>#}
+                                {#                                    3,513#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    294#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%#}
+                                {#                                </td>#}
+                                {#                            </tr>#}
+                                {#                            <tr>#}
+                                {#                                <th scope="row">#}
+                                {#                                    /argon/tables.html#}
+                                {#                                </th>#}
+                                {#                                <td>#}
+                                {#                                    2,050#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    147#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%#}
+                                {#                                </td>#}
+                                {#                            </tr>#}
+                                {#                            <tr>#}
+                                {#                                <th scope="row">#}
+                                {#                                    /argon/profile.html#}
+                                {#                                </th>#}
+                                {#                                <td>#}
+                                {#                                    1,795#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    190#}
+                                {#                                </td>#}
+                                {#                                <td>#}
+                                {#                                    <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%#}
+                                {#                                </td>#}
+                                {#                            </tr>#}
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Page name</th>
-                                <th scope="col">Visitors</th>
-                                <th scope="col">Unique users</th>
-                                <th scope="col">Bounce rate</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    /argon/
-                                </th>
-                                <td>
-                                    4,569
-                                </td>
-                                <td>
-                                    340
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/index.html
-                                </th>
-                                <td>
-                                    3,985
-                                </td>
-                                <td>
-                                    319
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/charts.html
-                                </th>
-                                <td>
-                                    3,513
-                                </td>
-                                <td>
-                                    294
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/tables.html
-                                </th>
-                                <td>
-                                    2,050
-                                </td>
-                                <td>
-                                    147
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/profile.html
-                                </th>
-                                <td>
-                                    1,795
-                                </td>
-                                <td>
-                                    190
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
-            </div>
-            <div class="col-xl-4">
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Social traffic</h3>
-                            </div>
-                            <div class="col text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">See all</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Referral</th>
-                                <th scope="col">Visitors</th>
-                                <th scope="col"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    Facebook
-                                </th>
-                                <td>
-                                    1,480
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">60%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    Facebook
-                                </th>
-                                <td>
-                                    5,480
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">70%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    Google
-                                </th>
-                                <td>
-                                    4,807
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">80%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    Instagram
-                                </th>
-                                <td>
-                                    3,678
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">75%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    twitter
-                                </th>
-                                <td>
-                                    2,645
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">30%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                {#            <div class="col-xl-4">#}
+                {#                <div class="card">#}
+                {#                    <div class="card-header border-0">#}
+                {#                        <div class="row align-items-center">#}
+                {#                            <div class="col">#}
+                {#                                <h3 class="mb-0">설문조사 표본</h3>#}
+                {#                            </div>#}
+                {#                            <div class="col text-right">#}
+                {#                                <a href="#!" class="btn btn-sm btn-primary">See all</a>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                    <div class="table-responsive">#}
+                {#                        <!-- Projects table -->#}
+                {#                        <table class="table align-items-center table-flush">#}
+                {#                            <thead class="thead-light">#}
+                {#                            <tr>#}
+                {#                                <th scope="col">분야</th>#}
+                {#                                <th scope="col">설문자수</th>#}
+                {#                                <th scope="col">비율</th>#}
+                {#                            </tr>#}
+                {#                            </thead>#}
+                {#                            <tbody>#}
+                {#                             {% if know17 %}#}
+                {#                                  {% for know in know17 %}#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    {{ know.large_level }}#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    {{ know.count}}#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">{{ know.ratio}}%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="{{ know.ratio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ know.ratio}}%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                             {% endfor %}#}
+                {#                                {% endif %}#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    Facebook#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    5,480#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">70%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    Google#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    4,807#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">80%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    Instagram#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    3,678#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">75%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    twitter#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    2,645#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">30%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    1#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    1,480#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">60%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    Facebook#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    1,480#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">60%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    Facebook#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    1,480#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">60%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    Facebook#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    1,480#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">60%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            <tr>#}
+                {#                                <th scope="row">#}
+                {#                                    Facebook#}
+                {#                                </th>#}
+                {#                                <td>#}
+                {#                                    1,480#}
+                {#                                </td>#}
+                {#                                <td>#}
+                {#                                    <div class="d-flex align-items-center">#}
+                {#                                        <span class="mr-2">60%</span>#}
+                {#                                        <div>#}
+                {#                                            <div class="progress">#}
+                {#                                                <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </td>#}
+                {#                            </tr>#}
+                {#                            </tbody>#}
+                {#                        </table>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#            </div>#}
+                {#        </div>#}
+                <!-- Footer -->
+                <footer class="footer pt-0">
+
+                    {#            <div class="row align-items-center justify-content-lg-between">#}
+                    {#                <div class="col-lg-6">#}
+                    {#                    <div class="copyright text-center  text-lg-left  text-muted">#}
+                    {#                        &copy; 2022 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Team 2</a>#}
+                    {#                    </div>#}
+                    {#                </div>#}
+                    {#                <div class="col-lg-6">#}
+                    {#                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Team 2</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Github</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>#}
+                    {#                        </li>#}
+                    {#                    </ul>#}
+                    {#                </div>#}
+                    {#            </div>#}
+                </footer>
             </div>
         </div>
-        <!-- Footer -->
-        <footer class="footer pt-0">
-            {#            <div class="row align-items-center justify-content-lg-between">#}
-            {#                <div class="col-lg-6">#}
-            {#                    <div class="copyright text-center  text-lg-left  text-muted">#}
-            {#                        &copy; 2022 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Team 2</a>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#                <div class="col-lg-6">#}
-            {#                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">#}
-            {#                        <li class="nav-item">#}
-            {#                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Team 2</a>#}
-            {#                        </li>#}
-            {#                        <li class="nav-item">#}
-            {#                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>#}
-            {#                        </li>#}
-            {#                        <li class="nav-item">#}
-            {#                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Github</a>#}
-            {#                        </li>#}
-            {#                        <li class="nav-item">#}
-            {#                            <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>#}
-            {#                        </li>#}
-            {#                    </ul>#}
-            {#                </div>#}
-            {#            </div>#}
-        </footer>
-    </div>
-</div>
-<!-- Argon Scripts -->
-<!-- Core -->
-{#<script src="assets/vendor/jquery/dist/jquery.min.js"></script>#}
-<script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
-{#<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>#}
-<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-{#<script src="assets/vendor/js-cookie/js.cookie.js"></script>#}
-<script src="{% static 'vendor/js-cookie/js.cookie.js' %}"></script>
-{#<script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>#}
-<script src="{% static 'vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
-{#<script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>#}
-<script src="{% static 'vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
-<!-- Optional JS -->
-{#<script src="assets/vendor/chart.js/dist/Chart.min.js"></script>#}
-<script src="{% static 'vendor/chart.js/dist/Chart.min.js' %}"></script>
-{#<script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>#}
-<script src="{% static 'vendor/chart.js/dist/Chart.extension.js' %}"></script>
-<!-- Argon JS -->
-{#<script src="assets/js/argon.js?v=1.2.0"></script>#}
-<script src="{% static 'js/argon.js' %}"></script>
-<script>
-    // create bar-chart
-    var BarsChart = (function() {
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        {#<script src="assets/vendor/jquery/dist/jquery.min.js"></script>#}
+        <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+        {#<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>#}
+        {#        <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>#}
+        {#<script src="assets/vendor/js-cookie/js.cookie.js"></script>#}
+        <script src="{% static 'vendor/js-cookie/js.cookie.js' %}"></script>
+        {#<script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>#}
+        {#        <script src="{% static 'vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>#}
+        {#<script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>#}
+        {#        <script src="{% static 'vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>#}
+        <!-- Optional JS -->
+        {#<script src="assets/vendor/chart.js/dist/Chart.min.js"></script>#}
+        <script src="{% static 'vendor/chart.js/dist/Chart.min.js' %}"></script>
+        {#<script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>#}
+        <script src="{% static 'vendor/chart.js/dist/Chart.extension.js' %}"></script>
+        <!-- Argon JS -->
+        {#<script src="assets/js/argon.js?v=1.2.0"></script>#}
+        <script src="{% static 'js/argon.js' %}"></script>
+        <script>
 
-        //
-        // Variables
-        //
-        var $chart = $('#bar-chart');
-
-
-        //
-        // Methods
-        //
-
-        // Init chart
-        function initChart($chart) {
-
-            // Create chart
-            var ordersChart = new Chart($chart, {
+            let myChart2;
+            // create bar-chart
+            const ctx = document.getElementById('bars').getContext('2d');
+            let myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['운동선수', '의사', '교사', '크리에이터', '프로게이머', '경찰관'],
+                    labels: ['운동선수', '의사', '교사', '크리에이터', '프로게이머'],
                     datasets: [{
-                        // label: '%',
-                        data: [8.8, 7.6, 6.5, 6.3, 4.3, 4.2]
+                        label: '%',
+                        data: [8.8, 7.6, 6.5, 6.3, 4.3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
                     }]
                 },
                 options: {
                     scales: {
-                        xAxes: [{//x축 설정
+                        xAxes: [{
                             ticks: {
-                                minRotation: 45,
-                                maxRotation: 45
+                                autoSkip: false,
+                                maxRotation: 0,
+                                minRotation: 0,
+                                padding:15,
                             }
-                        }]
-                    }
+                        }],
+                        y: {
+                            beginAtZero: true
+                        },
+
+                    },
                 },
             });
 
-            // Save to jQuery object
-            $chart.data('chart', ordersChart);
-        }
+            //create line-chart
+            let labels = ['2018', '2019', '2020'];
+            let data = {
+                labels: labels,
+                datasets: [{
+                    label: '시간',
+                    data: [47, 43, 43],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            };
+            let config = {
+                type: 'line',
+                data: data,
 
-        // Init chart
-        if ($chart.length) {
-            initChart($chart);
-        }
+            };
+            myChart2 = new Chart(
+                document.getElementById('lines'),
+                config
+            );
 
-    })();
-</script>
+            // line-chart 셀렉트박스 차트 그리기
+            $('#choice_job').on('change', () => {
+                choice = $('#choice_job option:selected').val()
+                // console.log(choice)
+                switch(choice){
+                    case '건채':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [47, 43, 43],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options,
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '경사금보':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [45, 44, 43],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options,
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '교법사경소군':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [43, 42, 42],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options,
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '농어':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [48, 43, 45],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options,
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '미여숙음경청':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [47, 46, 44],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '보의':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [45, 43, 43],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '설정생':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [48, 47, 44],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '연공':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [45, 44, 43],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options,
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '영판운운':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [48, 47, 44],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        };
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options,
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    case '예디방스':
+                        if(myChart2 != undefined) {
+                            myChart2.destroy();
+                        }
+                        labels = ['2018', '2019', '2020'];
+                        data = {
+                            labels: labels,
+                            datasets: [{
+                                label: '시간',
+                                data: [41, 41, 41],
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        };
+                        options = {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        suggestedMin: 0,
+                                        suggestedMax : 50,
+                                        stepSize : 5,
+                                    }
+                                }]
+                            }
+                        }
+                        config = {
+                            type: 'line',
+                            data: data,
+                            options : options,
+                        };
+                        myChart2 = new Chart(
+                            document.getElementById('lines'),
+                            config
+                        );
+                        break
+                    default:
+                        alert('값을 선택해 주세요')
+                }
+            })
+
+            $('.yearbtn').on('click', function() {
+                year_str = $(this).text()
+                //console.log('-------------',year_str)
+                //console.log(typeof(year_str))
+                //create bar 2019
+                if (myChart != undefined) {
+                    myChart.destroy();
+                }
+                if(year_str === '2018'){
+                    myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['운동선수', '교사', '의사', '요리사', '유튜버'],
+                            datasets: [{
+                                label: '%',
+                                data: [9.8, 8.7, 5.1, 4.9, 4.5],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 0,
+                                        minRotation: 0,
+                                        padding: 15,
+                                    }
+                                }],
+                                y: {
+                                    beginAtZero: true
+                                },
+                            },
+
+                        },
+                    })
+                }else if(year_str ==='2019'){
+                    myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['운동선수', '교사', '크리에이터', '의사', '요리사'],
+                            datasets: [{
+                                label: '%',
+                                data: [11.6, 6.9, 5.7, 5.6, 4.1],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 0,
+                                        minRotation: 0,
+                                        padding: 15,
+                                    }
+                                }],
+                                y: {
+                                    beginAtZero: true
+                                },
+                            },
+
+                        },
+                    })
+                }else if(year_str === '2017') {
+                    myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['교사', '운동선수', '의사', '요리사', '경찰'],
+                            datasets: [{
+                                label: '%',
+                                data: [9.5, 9.1, 6.0, 4.9, 4.8],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 0,
+                                        minRotation: 0,
+                                        padding: 15,
+                                    }
+                                }],
+                                y: {
+                                    beginAtZero: true
+                                },
+                            },
+
+                        },
+                    })
+                }else{
+                    myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['운동선수', '의사', '교사', '크리에이터', '프로게이머'],
+                            datasets: [{
+                                label: '%',
+                                data: [8.8, 7.6, 6.5, 6.3, 4.3],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 0,
+                                        minRotation: 0,
+                                        padding: 15,
+                                    }
+                                }],
+                                y: {
+                                    beginAtZero: true
+                                },
+                            },
+
+                        },
+                    })
+                }
+
+                //console.log('ajax 고2')
+                $.ajax({
+                    url: '/ajax_method/',
+                    {#type: "POST",#}
+                    dataType: "json",
+                    data: {year_str: year_str},
+                    success: function (data) {
+                        //console.log('성공 : ',data);
+                        inputData(data)
+
+                    }, beforeSend: function () {
+                        //console.log("i am waiting");
+                    }, complete: function () {
+                        //console.log("i am done");
+                    }, error: function (request, status, error) {
+                        //console.log('i am failed');
+                    }
+                })
+            })
+
+            function inputData(data){
+                str = '';
+                data.know.map((number, index, source) => {
+                    str += '<tr>'
+                    str += '<th scope="row">';
+                    str += `<span>${number.large_level}</span>`;
+                    str += '</th>';
+                    str += '<td>';
+                    str += `<span>${number.count} 명</span>`;
+                    str += '</td>';
+                    str += '<td>';
+                    str += `<span>${number.top_start_salary} 만원</span>`;
+                    str += '</td>'
+                    str += '<td>';
+                    str += `<span>${number.avg_start_salary} 만원</span>`;
+                    str += '</td>'
+                    str += '<td>'
+                    str += `<span>${number.top_salary} 만원</span>`
+                    str += '</td>'
+                    str += '<td>'
+                    str += `<span>${number.avg_salary} 만원</span>`
+                    str += '</td>'
+                    str += '<td>'
+                    str += `<span>${number.avg_age} 살</span>`;
+                    str += '</td>'
+                    str += '<td>'
+                    str += '<div class="d-flex align-items-center">';
+                    str += `<span class="mr-2" id="ratio">${number.ratio}%</span>`
+                    str += `<div><div class="progress"><div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="${number.ratio}" aria-valuemin="0" aria-valuemax="100" style="width: ${number.ratio}%;"></div></div></div>`
+                    str += '</div>';
+                    str += '</td>';
+                    str += '</tr>'
+                })
+                $('#job-tb').html(str)
+            }
+        </script>
+
 </body>
 </html>

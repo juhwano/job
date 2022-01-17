@@ -21,8 +21,10 @@ from project_j import views
 urlpatterns = [
     path('', include('common.urls')),
     path('index/', views.index, name='index'),
+    path('ajax_method/', views.ajax_method, name='ajax_method'),
     path('admin/', admin.site.urls, name='admin'),
     path('talk/', include('talk.urls'), name='talk'),
-    path('discover/', include('discover.urls'), name='discover'),
+    path('discover/', include('discover.urls')),
     path('users/', include('users.urls'), name='users'),
 ]
+

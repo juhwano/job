@@ -2,16 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa835117-e190-40cb-9aba-5a2a80aeec10" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/discover/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/discover/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discover/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/discover/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/discover/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_j/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_j/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_j/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/discover/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discover/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -41,12 +50,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../crud" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -104,10 +115,33 @@
       <workItem from="1642058276210" duration="1861000" />
       <workItem from="1642060346619" duration="6627000" />
       <workItem from="1642098829439" duration="4817000" />
+      <workItem from="1642122573724" duration="1901000" />
+      <workItem from="1642126076948" duration="7137000" />
+      <workItem from="1642137407260" duration="360000" />
+      <workItem from="1642137811098" duration="221000" />
+      <workItem from="1642138079031" duration="151000" />
+      <workItem from="1642138280125" duration="4618000" />
+      <workItem from="1642153633340" duration="29000" />
+      <workItem from="1642233173144" duration="1684000" />
+      <workItem from="1642235410620" duration="415000" />
+      <workItem from="1642314897817" duration="5526000" />
+      <workItem from="1642320514001" duration="11045000" />
+      <workItem from="1642377188718" duration="34326000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
