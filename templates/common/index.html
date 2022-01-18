@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>직업 TEST</title>
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/brand/favicon.png' %}" type="image/png">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Icons -->
+    <link rel="stylesheet" href="{% static 'vendor/nucleo/css/nucleo.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
+    <!-- Page plugins -->
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="{% static 'css/argon.css' %}" type="text/css">
+    <!-- 합쳐지고 최소화된 최신 CSS (부트스트랩) -->
+    {#    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/common/default.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/common/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/common/qna.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/common/result.css' %}" type="text/css">
+</head>
+<body>
+<div id="container">
+    <section id="main" class="mx-auto my-5 py-5 px-3">
+        <h1>당신에게 어울리는 직업은?</h1>
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto mb-2">
+            <img src="{% static 'img/brand/job.png' %}" class="img-fluid" alt="mainImage">
+        </div>
+        <p>
+            과연 어떤 직업이 당신에게 잘 맞을까요? <br/>
+            테스트를 통해 알아보세요
+        </p>
+        <button type="button" class="btn btn-danger mt-3" onclick="js:begin()">테스트 시작</button>
+    </section>
+    <section id="qna">
+        <div class="status mx-auto mt-5">
+            <div class="statusBar"/>
+        </div>
+        <div class="qBox mx-auto my-5 py-3">
+
+        </div>
+        <div class="answerBox">
+
+        </div>
+    </section>
+    <section id="result">
+        <h1>당신의 직업은!</h1>
+        <div class="resultname">
+
+        </div>
+        <div id='resultImg' class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto mb-2">
+        </div>
+        <div class="resultDesc">
+
+        </div>
+        <button type="button">공유하기</button>
+
+    </section>
+</div>
+<!-- Core -->
+<script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/js-cookie/js.cookie.js' %}"></script>
+<!-- Optional JS -->
+<script src="{% static 'vendor/chart.js/dist/Chart.min.js' %}"></script>
+<script src="{% static 'vendor/chart.js/dist/Chart.extension.js' %}"></script>
+<!-- Argon JS -->
+<script src="{% static 'js/argon.js' %}"></script>
+<!-- JS -->
+<script src="{% static 'js/components/common/data.js' %}" charset="utf-8"></script>
+<script src="{% static 'js/components/common/function.js' %}" charset="utf-8"></script>
+</body>
+</html>
