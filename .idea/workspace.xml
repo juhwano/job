@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa835117-e190-40cb-9aba-5a2a80aeec10" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/29c57396-4fa0-40f7-b143-6f180a737170.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/29c57396-4fa0-40f7-b143-6f180a737170.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_j/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_j/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/discover/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discover/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +124,7 @@
       <workItem from="1642377188718" duration="34326000" />
       <workItem from="1642471202709" duration="9269000" />
       <workItem from="1642482725911" duration="15272000" />
+      <workItem from="1642507308537" duration="19749000" />
     </task>
     <servers />
   </component>

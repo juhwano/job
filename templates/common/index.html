@@ -23,10 +23,10 @@
     <link rel="stylesheet" href="{% static 'css/common/result.css' %}" type="text/css">
 </head>
 <body>
-<div id="container">
+<div class="container">
     <section id="main" class="mx-auto my-5 py-5 px-3">
         <h1>당신에게 어울리는 직업은?</h1>
-        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto mb-2">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
             <img src="{% static 'img/brand/job.png' %}" class="img-fluid" alt="mainImage">
         </div>
         <p>
@@ -37,26 +37,30 @@
     </section>
     <section id="qna">
         <div class="status mx-auto mt-5">
-            <div class="statusBar"/>
+            <div class="statusBar"></div>
         </div>
-        <div class="qBox mx-auto my-5 py-3">
+        <div class="qBox mx-auto my-5 py-3 px-3">
 
         </div>
         <div class="answerBox">
 
         </div>
     </section>
-    <section id="result">
+    <section id="result" class="mx-auto my-5 py-5 px-3">
         <h1>당신의 직업은!</h1>
         <div class="resultname">
 
         </div>
-        <div id='resultImg' class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto mb-2">
+        <div id='resultImg' class="my-3 col-lg-6 col-md-8 col-sm-10 col-12 mx-auto mb-2">
         </div>
         <div class="resultDesc">
 
         </div>
-        <button type="button">공유하기</button>
+        <div class="resultJob">
+
+        </div>
+        <button type="button" class="btn btn-warning kakao mt-3 px-4">공유하기</button>
+        <button type="button" class="btn btn-danger mt-3">더 알아보기</button>
 
     </section>
 </div>
