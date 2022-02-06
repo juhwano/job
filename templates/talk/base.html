@@ -1,0 +1,752 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="직업 추천 사이트">
+    <meta name="author" content="맞죠맞죠">
+    <title>직업 추천 사이트</title>
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/brand/favicon.png' %}" type="image/png">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Icons -->
+    <link rel="stylesheet" href="{% static 'vendor/nucleo/css/nucleo.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
+    <!-- Page plugins -->
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="{% static 'css/argon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/talk/default.css' %}" type="text/css">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="main-content" id="panel">
+    <!-- Topnav -->
+    {% include 'talk/navbar.html' %}
+    <!-- Page content -->
+    <div class="row">
+        <div class="col-md-8 col-lg-12" id="main-area">
+            <!-- Page content -->
+            <div class="container-fluid mt-6">
+                {% block main_area %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchPost(){
+            let searchValue = document.getElementById('search-input').value.trim();
+            if (searchValue.length > 1){
+                location.href="/talk/search/" + searchValue + "/";
+            }
+            else{
+                alert('검색어('+ searchValue +')가 너무 짧습니다.');
+            }
+        };
+
+        document.getElementById('search-input').addEventListener('keyup', function(event){
+            if(event.key === 'Enter'){
+                searchPost();
+            }
+        });
+    </script>
+    <!-- Core -->
+    <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/js-cookie/js.cookie.js' %}"></script>
+    <!-- Optional JS -->
+    <script src="{% static 'vendor/chart.js/dist/Chart.min.js' %}"></script>
+    <script src="{% static 'vendor/chart.js/dist/Chart.extension.js' %}"></script>
+    <!-- Argon JS -->
+    <script src="{% static 'js/argon.js' %}"></script>
+    <script>
+        let myChart2;
+        // create bar-chart
+        const ctx = document.getElementById('bars').getContext('2d');
+        let myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['운동선수', '의사', '교사', '크리에이터', '프로게이머'],
+                datasets: [{
+                    label: '%',
+                    data: [8.8, 7.6, 6.5, 6.3, 4.3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 0,
+                            minRotation: 0,
+                            padding:15,
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 10,
+                            stepSize: 3
+                        }
+                    }],
+
+                },
+            },
+        });
+
+        //create line-chart
+        let labels = ['2018', '2019', '2020'];
+        let data = {
+            labels: labels,
+            datasets: [{
+                label: '시간',
+                data: [47, 43, 43],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            },
+
+            ]
+        };
+        let config = {
+            type: 'bar',
+            data: data,
+        };
+        myChart2 = new Chart(
+            document.getElementById('lines'),
+            config
+        );
+
+        // line-chart 셀렉트박스 차트 그리기
+        $('#choice_job').on('change', () => {
+            choice = $('#choice_job option:selected').val()
+            // console.log(choice)
+            switch(choice){
+                case '건채':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [47, 43, 43],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        },
+
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options,
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '경사금보':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [45, 44, 43],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        },
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options,
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '교법사경소군':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [43, 42, 42],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options,
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '농어':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [48, 43, 45],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options,
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '미여숙음경청':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [47, 46, 44],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '보의':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [45, 43, 43],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '설정생':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [48, 47, 44],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '연공':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [45, 44, 43],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options,
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '영판운운':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [48, 47, 44],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    };
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options,
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                case '예디방스':
+                    if(myChart2 != undefined) {
+                        myChart2.destroy();
+                    }
+                    labels = ['2018', '2019', '2020'];
+                    data = {
+                        labels: labels,
+                        datasets: [{
+                            label: '시간',
+                            data: [41, 41, 41],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+                    options = {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax : 50,
+                                    stepSize : 5,
+                                }
+                            }]
+                        }
+                    }
+                    config = {
+                        type: 'bar',
+                        data: data,
+                        options : options,
+                    };
+                    myChart2 = new Chart(
+                        document.getElementById('lines'),
+                        config
+                    );
+                    break
+                default:
+                    alert('값을 선택해 주세요')
+            }
+        })
+
+        $('.yearbtn').on('click', function() {
+            year_str = $(this).text()
+            if (myChart != undefined) {
+                myChart.destroy();
+            }
+            if(year_str === '2018'){
+                myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['운동선수', '교사', '의사', '요리사', '유튜버'],
+                        datasets: [{
+                            label: '%',
+                            data: [9.8, 8.7, 5.1, 4.9, 4.5],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: false,
+                                    maxRotation: 0,
+                                    minRotation: 0,
+                                    padding: 15,
+                                }
+                            }],
+                            y: {
+                                beginAtZero: true
+                            },
+                        },
+
+                    },
+                })
+            }else if(year_str ==='2019'){
+                myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['운동선수', '교사', '크리에이터', '의사', '요리사'],
+                        datasets: [{
+                            label: '%',
+                            data: [11.6, 6.9, 5.7, 5.6, 4.1],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: false,
+                                    maxRotation: 0,
+                                    minRotation: 0,
+                                    padding: 15,
+                                }
+                            }],
+                            y: {
+                                beginAtZero: true
+                            },
+                        },
+
+                    },
+                })
+            }else if(year_str === '2017') {
+                myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['교사', '운동선수', '의사', '요리사', '경찰'],
+                        datasets: [{
+                            label: '%',
+                            data: [9.5, 9.1, 6.0, 4.9, 4.8],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: false,
+                                    maxRotation: 0,
+                                    minRotation: 0,
+                                    padding: 15,
+                                }
+                            }],
+                            y: {
+                                beginAtZero: true
+                            },
+                        },
+
+                    },
+                })
+            }else{
+                myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['운동선수', '의사', '교사', '크리에이터', '프로게이머'],
+                        datasets: [{
+                            label: '%',
+                            data: [8.8, 7.6, 6.5, 6.3, 4.3],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: false,
+                                    maxRotation: 0,
+                                    minRotation: 0,
+                                    padding: 15,
+                                }
+                            }],
+                            y: {
+                                beginAtZero: true
+                            },
+                        },
+
+                    },
+                })
+            }
+
+            //console.log('ajax 고2')
+            $.ajax({
+                url: 'get_data/',
+                {#type: "POST",#}
+                dataType: "json",
+                data: {year_str: year_str},
+                success: function (data) {
+                    //console.log('성공 : ',data);
+                    inputData(data)
+
+                }, beforeSend: function () {
+                    //console.log("i am waiting");
+                }, complete: function () {
+                    //console.log("i am done");
+                }, error: function (request, status, error) {
+                    //console.log('i am failed');
+                }
+            })
+        })
+
+        function inputData(data){
+            str = '';
+            data.know.map((number, index, source) => {
+                str += '<tr>'
+                str += '<th scope="row">';
+                str += `<span>${number.large_level}</span>`;
+                str += '</th>';
+                str += '<td>';
+                str += `<span>${number.count} 명</span>`;
+                str += '</td>';
+                str += '<td>';
+                str += `<span>${number.top_start_salary} 만원</span>`;
+                str += '</td>'
+                str += '<td>';
+                str += `<span>${number.avg_start_salary} 만원</span>`;
+                str += '</td>'
+                str += '<td>'
+                str += `<span>${number.top_salary} 만원</span>`
+                str += '</td>'
+                str += '<td>'
+                str += `<span>${number.avg_salary} 만원</span>`
+                str += '</td>'
+                str += '<td>'
+                str += `<span>${number.avg_age} 살</span>`;
+                str += '</td>'
+                str += '<td>'
+                str += '<div class="d-flex align-items-center">';
+                str += `<span class="mr-2" id="ratio">${number.ratio}%</span>`
+                str += `<div><div class="progress"><div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="${number.ratio}" aria-valuemin="0" aria-valuemax="100" style="width: ${number.ratio}%;"></div></div></div>`
+                str += '</div>';
+                str += '</td>';
+                str += '</tr>'
+            })
+            $('#job-tb').html(str)
+        }
+    </script>
+    {% include 'talk/footer.html' %}
+</div>
+</body>
+</html>

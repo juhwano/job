@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+     <link rel="stylesheet" href="{% static 'reset.css'%}" type="text/css">
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'assets/img/brand/favicon.png'%}" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+{#  <!-- Icons -->#}
+  <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css'%}" type="text/css">
+{#  <!-- Argon CSS -->#}
+{#  <link rel="stylesheet" href="{% static 'assets/css/argon.css'%}" type="text/css">#}
+    <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js'%}"></script>
+
+<style>
+
+    input[type='radio']{
+        width:60px;
+        height:60px;
+    }
+
+
+</style>
+
+</head>
+<body>
+
+{#<div class="q_box q_box_1 on">#}
+{#<div class="q_listbox">#}
+{#<div class="q_list q_list1">#}
+{#<div class="checking_wrap">#}
+{#<strong><span>1. 특별히 이루고자 하는 꿈은 없다. 소박하고 무난한 삶이면 좋겠다.</span></strong>#}
+{#<div class="check_box">#}
+{#<span class="agree_txt">동의</span>#}
+{#<div class="input_wrap">#}
+{#<div class="input_box">#}
+{#<input type="radio" id="radio_1_1" name="radio_1" value="1">#}
+{#<label for="radio_1_1"></label>#}
+{#</div>#}
+{#<div class="input_box">#}
+{#<input type="radio" id="radio_1_2" name="radio_1" value="1">#}
+{#<label for="radio_1_2"></label>#}
+{#</div>#}
+{#<div class="input_box">#}
+{#<input type="radio" id="radio_1_3" name="radio_1" value="1">#}
+{#<label for="radio_1_3"></label>#}
+{#</div>#}
+{#<div class="input_box">#}
+{#<input type="radio" id="radio_1_4" name="radio_1" value="0">#}
+{#<label for="radio_1_4"></label>#}
+{#</div>#}
+{#<div class="input_box">#}
+{#<input type="radio" id="radio_1_5" name="radio_1" value="-1">#}
+{#<label for="radio_1_5"></label>#}
+{#</div>#}
+{#<div class="input_box">#}
+{#<input type="radio" id="radio_1_6" name="radio_1" value="-1">#}
+{#<label for="radio_1_6"></label>#}
+{#</div>#}
+{#<div class="input_box">#}
+{#<input type="radio" id="radio_1_7" name="radio_1" value="-1">#}
+{#<label for="radio_1_7"></label>#}
+{#</div>#}
+{#</div>#}
+{#<span class="disagree_txt">비동의</span>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+
+
+
+<form role="form" action="/jobrec/submit" method="post">
+    {% csrf_token %}
+<div class="input-group">
+      <span class="text">가깝다</span>
+<div class="custom-control custom-radio custom-control-inline input_box">
+  <input type="radio" id="customRadioInline1" name="a1" value="1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline1"></label>
+</div>
+<div class="custom-control custom-radio custom-control-inline input_box">
+  <input type="radio" id="customRadioInline2" name="a1" value="2" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline2"></label>
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+<input type="radio" id="customRadioInline3" name="a1" value="3" class="custom-control-input">
+<label class="custom-control-label" for="customRadioInline3"></label>
+</div>
+    <div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline4" name="a1" value="4" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline4"></label>
+</div>
+    <div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline5" name="a1" value="5" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline5"></label>
+</div>
+      <span class="text">멀다</span>
+</div>
+
+<button>제출</button>
+
+
+
+</form>
+</body>
+</html>

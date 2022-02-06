@@ -2,9 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa835117-e190-40cb-9aba-5a2a80aeec10" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/29c57396-4fa0-40f7-b143-6f180a737170.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/29c57396-4fa0-40f7-b143-6f180a737170.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discover/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_j/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_j/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_j/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/common/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/discover/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discover/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk/detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +56,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,6 +78,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="23bLevkTeKTBqqi3QjnjkbtXcrm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,24 +92,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/talk" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\DEV\project_j\templates\talk" />
-      <recent name="C:\DEV\project_j\discover" />
-      <recent name="C:\DEV\project_j\jobs" />
-      <recent name="C:\DEV\project_j\talk" />
-      <recent name="C:\DEV\project_j\project_j" />
+      <recent name="C:\DEV\project_j\static\js\components\vendor" />
+      <recent name="C:\DEV\project_j\static\js\components\common" />
+      <recent name="C:\DEV\project_j\static\img\common" />
+      <recent name="C:\DEV\project_j\static\css\common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\DEV\project_j\static\js\components\common" />
-      <recent name="C:\DEV\project_j\static\css\common" />
-      <recent name="C:\DEV\project_j\static\img\brand" />
-      <recent name="C:\DEV\project_j\static\admin\img" />
-      <recent name="C:\DEV\project_j\static\js\components\init" />
+      <recent name="C:\DEV\project_j\static\img\talk" />
+      <recent name="C:\DEV\project_j\static\img\common\result" />
+      <recent name="C:\DEV\project_j\static\css" />
+      <recent name="C:\DEV\project_j\static" />
+      <recent name="C:\DEV\project_j\static\img\icons\common" />
     </key>
   </component>
   <component name="RunManager">
@@ -125,6 +167,30 @@
       <workItem from="1642471202709" duration="9269000" />
       <workItem from="1642482725911" duration="15272000" />
       <workItem from="1642507308537" duration="19749000" />
+      <workItem from="1642568316602" duration="3574000" />
+      <workItem from="1642585038863" duration="2625000" />
+      <workItem from="1642595841575" duration="7869000" />
+      <workItem from="1642603818119" duration="7642000" />
+      <workItem from="1642620123226" duration="4217000" />
+      <workItem from="1642956528074" duration="1141000" />
+      <workItem from="1643023059018" duration="918000" />
+      <workItem from="1643088633976" duration="284000" />
+      <workItem from="1643089081824" duration="11026000" />
+      <workItem from="1643337170194" duration="6859000" />
+      <workItem from="1643361694878" duration="1896000" />
+      <workItem from="1643363799386" duration="1000" />
+      <workItem from="1643368857530" duration="1211000" />
+      <workItem from="1643453827898" duration="45000" />
+      <workItem from="1643454362673" duration="814000" />
+      <workItem from="1643455227886" duration="3241000" />
+      <workItem from="1643506684774" duration="404000" />
+      <workItem from="1643839758704" duration="9319000" />
+      <workItem from="1643873593638" duration="13989000" />
+      <workItem from="1643941387839" duration="115000" />
+      <workItem from="1643941632094" duration="1628000" />
+      <workItem from="1643956741357" duration="6367000" />
+      <workItem from="1644101008964" duration="1380000" />
+      <workItem from="1644103301089" duration="33063000" />
     </task>
     <servers />
   </component>
@@ -141,16 +207,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/templates/discover/index.html</url>
-          <line>1507</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

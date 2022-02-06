@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="juhwano" />
+    <meta name="keywords" content="추천 당신의 직업은?" />
+    <meta name="description" content="추천 당신의 직업은?" />
+    <!-- sns share -->
+{#    <meta property="og:url" content="https://jobtype.netlify.app" />#}
+    <meta property="og:title" content="추천 당신의 직업은?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/img/share.jpg" />
+    <meta property="og:description" content="당신의 직업을 추천해드립니다." />
+    <meta
+      property="og:description"
+      content="당신에게 잘 맞는 직업을 추천해드립니다."
+    />
+    <title>추천 당신의 직업은?</title>
+    <!-- Favicon -->
+    <link rel="icon" href={% static 'img/common/favicon.png' %} type="image/png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href={% static 'img/common/favicon.png' %}
+      type="image/png"
+    />
+    <!-- Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+    />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href={% static 'vendor/@fontawesome/fontawesome-free/css/all.min.css' %}
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href={% static 'vendor/nucleo/css/nucleo.css' %}
+      type="text/css"
+    />
+    <!-- Argon CSS -->
+    <link
+      rel="stylesheet"
+      href={% static 'css/argon.css' %}
+      type="text/css"
+    />
+
+    <link rel="stylesheet" href={% static 'css/common/default.css' %} type="text/css" />
+    <link rel="stylesheet" href={% static 'css/common/result.css' %} type="text/css" />
+    <script>
+      function moveHome() {
+        location.href = "/";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <section id="shareResult" class="mx-auto my-3">
+        <h1>당신은!</h1>
+        <div id="resultImg" class="mx-auto">
+          <img
+            src="{% static 'img/common/result/image-10.png' %}"
+            alt="10"
+            class="img-fluid"
+          />
+        </div>
+        <div class="resultname mb-2">#ISTJ #챔피언</div>
+        <div class="resultDesc mr-2 my-3">
+          챔피언형인 당신! <br />한번 시작한 일은 끝까지 해내는 성격이에요.
+        </div>
+        <h1>추천 직업은!</h1>
+        <div class="resultJob mr-5 my-2">
+          <ul>
+            <li>판사</li>
+            <li>회계사</li>
+            <li>감정 평가사</li>
+            <li>세관 조사원</li>
+            <li>공인 중개사</li>
+            <li>파일럿</li>
+            <li>선장</li>
+            <li>정비사</li>
+            <li>통계학자</li>
+            <li>기상학자</li>
+            <li>바이어</li>
+            <li>법률 연구원</li>
+            <li>보험 심사관</li>
+            <li>형사</li>
+          </ul>
+        </div>
+        <div class="resultFooter mr-1">
+          <button
+            type="button"
+            class="btn btn-danger resultBtn my-2"
+            onclick="js:moveHome()"
+            ;
+          >
+            나도 테스트해보기
+          </button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

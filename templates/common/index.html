@@ -1,79 +1,160 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>직업 TEST</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="juhwano" />
+    <meta name="keywords" content="추천 당신의 직업은?" />
+    <meta name="description" content="추천 당신의 직업은?" />
+    <!-- sns share -->
+{#    <meta property="og:url" content="https://jobtype.netlify.app" />#}
+    <meta property="og:title" content="추천 당신의 직업은?" />
+    <meta property="og:type" content="website" />
+{#    <meta property="og:image" content="/assets/img/share.jpg" />#}
+    <meta property="og:description" content="당신의 직업을 추천해드립니다." />
+    <meta
+      property="og:description"
+      content="당신에게 잘 맞는 직업을 추천해드립니다."
+    />
+    <title>추천 당신의 직업은?</title>
     <!-- Favicon -->
-    <link rel="icon" href="{% static 'img/brand/favicon.png' %}" type="image/png">
+    <link rel="icon" href="{% static 'img/common/favicon.png' %}" type="image/png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="{% static 'img/common/favicon.png' %}"
+      type="image/png"
+    />
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+    />
     <!-- Icons -->
-    <link rel="stylesheet" href="{% static 'vendor/nucleo/css/nucleo.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
-    <!-- Page plugins -->
+    <link
+      rel="stylesheet"
+      href="{% static 'vendor/@fontawesome/fontawesome-free/css/all.min.css' %}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'vendor/nucleo/css/nucleo.css' %}"
+      type="text/css"
+    />
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="{% static 'css/argon.css' %}" type="text/css">
-    <!-- 합쳐지고 최소화된 최신 CSS (부트스트랩) -->
-    {#    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">#}
-    <link rel="stylesheet" href="{% static 'css/common/default.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/common/main.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/common/qna.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/common/result.css' %}" type="text/css">
-</head>
-<body>
-<div class="container">
-    <section id="main" class="mx-auto my-5 py-5 px-3">
-        <h1>당신에게 어울리는 직업은?</h1>
-        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
-            <img src="{% static 'img/brand/job.png' %}" class="img-fluid" alt="mainImage">
-        </div>
-        <p>
-            과연 어떤 직업이 당신에게 잘 맞을까요? <br/>
-            테스트를 통해 알아보세요
+    <link
+      rel="stylesheet"
+      href="{% static 'css/argon.css' %}"
+      type="text/css"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/common/default.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/common/main.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/common/qna.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/common/result.css' %}" type="text/css" />
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      Kakao.init("2218ae28133d099cab7f118729fe61c5");
+      Kakao.isInitialized();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-F74S31L06J"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-F74S31L06J");
+    </script>
+  </head>
+  <body>
+    <div id="ad">
+      <ins
+        class="kakao_ad_area"
+        style="display: none"
+        data-ad-unit="DAN-eIpKMXDt5yLePByn"
+        data-ad-width="320"
+        data-ad-height="50"
+      ></ins>
+      <script
+        async
+        type="text/javascript"
+        src="//t1.daumcdn.net/kas/static/ba.min.js"
+      ></script>
+    </div>
+    <div class="container">
+      <section id="main" class="mx-auto py-5 px-3">
+        <h1 class="mt-5 text-center">당신에게 어울리는 직업은?</h1>
+        <p class="mt-2 mb-0 text-center">
+          과연 어떤 직업이 당신에게 잘 맞을까요?
         </p>
-        <button type="button" class="btn btn-danger mt-3" onclick="js:begin()">테스트 시작</button>
-    </section>
-    <section id="qna">
-        <div class="status mx-auto mt-5">
-            <div class="statusBar"></div>
+        <p class="text-center">테스트를 통해 알아보세요</p>
+        <button
+          id="startBtn"
+          type="button"
+          class="btn btn-danger my-3"
+          onclick="js:begin()"
+        >
+          테스트 시작
+        </button>
+      </section>
+      <section id="qna" class="py-5">
+        <div class="progress-outer mx-auto mt-5">
+          <div
+            class="progress-bar progress-bar-warning progress-bar-striped active"
+          ></div>
+          <div class="progress-value"></div>
         </div>
-        <div class="qBox mx-auto my-5 py-3 px-3">
-
+        <div class="qBox mx-auto my-5 py-3 px-3"></div>
+        <div class="answerBox"></div>
+      </section>
+      <section
+        id="result"
+        class="mx-auto col-lg-12 col-md-10 col-sm-8 col-xs-6"
+      >
+        <h1>당신은!</h1>
+        <div id="resultImg" class="mx-auto"></div>
+        <div class="resultname mb-2"></div>
+        <div class="resultDesc mr-2 my-3"></div>
+        <h1>추천 직업은!</h1>
+        <div class="mr-5 my-2">
+          <ul class="resultJob"></ul>
         </div>
-        <div class="answerBox">
-
+        <h1>공유하기</h1>
+        <div class="resultFooter mr-1">
+          <button
+            type="button"
+            id="resetBtn"
+            class="btn btn-danger resultBtn"
+            onclick="js:retry()"
+            ;
+          >
+            <i class="fas fa-redo"><span class="ml-1">다시하기</span></i>
+          </button>
+          <button
+            type="button"
+            class="btn kakao px-4 my-2"
+            onclick="js:setShare()"
+          >
+            <img
+              src={% static 'img/common/kakaotalk.png' %}
+              class="kakao_share"
+              alt="kakaotalk_share_image"
+            /><span>카카오톡</span>
+          </button>
+          <button type="button" class="btn btn-info resultBtn" onclick="js:mainDo()">
+            <i class="fas fa-plus mr-1"><span class="ml-1">더 보기</span></i>
+          </button>
         </div>
-    </section>
-    <section id="result" class="mx-auto my-5 py-5 px-3">
-        <h1>당신의 직업은!</h1>
-        <div class="resultname">
-
-        </div>
-        <div id='resultImg' class="my-3 col-lg-6 col-md-8 col-sm-10 col-12 mx-auto mb-2">
-        </div>
-        <div class="resultDesc">
-
-        </div>
-        <div class="resultJob">
-
-        </div>
-        <button type="button" class="btn btn-warning kakao mt-3 px-4">공유하기</button>
-        <button type="button" class="btn btn-danger mt-3">더 알아보기</button>
-
-    </section>
-</div>
-<!-- Core -->
-<script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
-<script src="{% static 'vendor/js-cookie/js.cookie.js' %}"></script>
-<!-- Optional JS -->
-<script src="{% static 'vendor/chart.js/dist/Chart.min.js' %}"></script>
-<script src="{% static 'vendor/chart.js/dist/Chart.extension.js' %}"></script>
-<!-- Argon JS -->
-<script src="{% static 'js/argon.js' %}"></script>
-<!-- JS -->
-<script src="{% static 'js/components/common/data.js' %}" charset="utf-8"></script>
-<script src="{% static 'js/components/common/function.js' %}" charset="utf-8"></script>
-</body>
+      </section>
+    </div>
+    <!-- JS -->
+    <script src="{% static 'js/components/common/data.js' %}" charset="utf-8"></script>
+    <script src="{% static 'js/components/common/function.js' %}" charset="utf-8"></script>
+    <script src="{% static 'js/components/common/share.js' %}" charset="utf-8"></script>
+  </body>
 </html>
