@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="{% static 'vendor/nucleo/css/nucleo.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{% static 'css/argon.css' %}" type="text/css">
@@ -738,7 +737,8 @@
                 str += '<td>'
                 str += '<div class="d-flex align-items-center">';
                 str += `<span class="mr-2" id="ratio">${number.ratio}%</span>`
-                str += `<div><div class="progress"><div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="${number.ratio}" aria-valuemin="0" aria-valuemax="100" style="width: ${number.ratio}%;"></div></div></div>`
+                str += `<div><div class="progress"><div class="progress-bar bg-
+gradient-success" role="progressbar" aria-valuenow="${number.ratio}" aria-valuemin="0" aria-valuemax="100" style="width: ${number.ratio}%;"></div></div></div>`
                 str += '</div>';
                 str += '</td>';
                 str += '</tr>'

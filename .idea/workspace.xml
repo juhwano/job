@@ -2,48 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa835117-e190-40cb-9aba-5a2a80aeec10" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discover/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_j/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_j/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_j/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_j/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/talk/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/discover/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discover/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/talk/detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/talk/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/talk/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/talk/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/talk/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/talk/post_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk/post_list2.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +156,9 @@
       <workItem from="1643956741357" duration="6367000" />
       <workItem from="1644101008964" duration="1380000" />
       <workItem from="1644103301089" duration="33063000" />
+      <workItem from="1644141816169" duration="565000" />
+      <workItem from="1644153742665" duration="3507000" />
+      <workItem from="1644193593024" duration="6265000" />
     </task>
     <servers />
   </component>
