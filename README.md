@@ -68,4 +68,4 @@
 <br/>
 
 ## ⚡ Trouble shooting
-- 리포지토리 내 이슈 참조
+- [리포지토리 내 이슈 참조](https://github.com/juhwano/job_manager/issues)
